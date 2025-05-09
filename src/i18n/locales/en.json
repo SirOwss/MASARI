@@ -1,0 +1,228 @@
+
+{
+  "common": {
+    "login": "Login",
+    "logout": "Logout",
+    "profile": "Profile",
+    "settings": "Settings",
+    "myAccount": "My Account",
+    "about": "About",
+    "features": "Features",
+    "contact": "Contact",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "loading": "Loading...",
+    "submitting": "Submitting...",
+    "backToHome": "Back to Home",
+    "edit": "Edit",
+    "delete": "Delete",
+    "actions": "Actions"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Welcome to MASARI Academic Operations Platform.",
+    "studentTitle": "Student Dashboard",
+    "studentSubtitle": "View your academic progress and upcoming exams.",
+    "upcomingExams": "Upcoming Exams",
+    "enrolledCourses": "Enrolled Courses",
+    "notifications": "Notifications",
+    "totalCredits": "Total Credits",
+    "nextExam": "Next exam in",
+    "days": "days",
+    "newNotifications": "New notifications",
+    "welcome": "Welcome to MASARI",
+    "studentWelcome": "Welcome to the MASARI Student Portal. Here you can view your upcoming exams, enrolled courses, and submit course requests."
+  },
+  "courses": {
+    "title": "Courses",
+    "subtitle": "Manage academic courses and their details.",
+    "addCourse": "Add Course",
+    "noCourses": "No courses found",
+    "table": {
+      "code": "Course Code",
+      "title": "Title",
+      "credits": "Credits",
+      "actions": "Actions"
+    }
+  },
+  "studentCourses": {
+    "title": "My Courses",
+    "subtitle": "View and register for courses",
+    "enrolledCourses": "Enrolled Courses"
+  },
+  "schedule": {
+    "title": "Course Schedule",
+    "subtitle": "Manage course timetables and venues.",
+    "uploadTitle": "Upload Schedule Data",
+    "universityExamFile": "University Exam Schedule",
+    "courseDataFile": "Course Data File",
+    "processFiles": "Process Files",
+    "generateReport": "Generate Report",
+    "examSchedules": "Exam Schedules",
+    "addExam": "Add Exam",
+    "addExamTitle": "Add New Exam",
+    "saveExam": "Save Exam",
+    "loadingExams": "Loading exam schedules...",
+    "noExams": "No exam schedules found",
+    "course": "Course",
+    "selectCourse": "Select a course",
+    "venue": "Venue",
+    "selectVenue": "Select a venue",
+    "examDate": "Exam Date",
+    "startTime": "Start Time",
+    "endTime": "End Time",
+    "venueManagement": "Venue Management",
+    "addVenue": "Add Venue",
+    "editVenue": "Edit Venue",
+    "venueName": "Venue Name",
+    "capacity": "Capacity",
+    "students": "students",
+    "saveVenue": "Save Venue",
+    "updateVenue": "Update Venue",
+    "loadingVenues": "Loading venues...",
+    "noVenues": "No venues found",
+    "currentSemesterSchedule": "Current Semester Schedule",
+    "loadingSchedules": "Loading schedules...",
+    "noSchedules": "No schedules found",
+    "processingFiles": "Processing files...",
+    "processSuccess": "Files processed successfully",
+    "reportGenerated": "Report generated successfully",
+    "confirmDelete": "Are you sure you want to delete this venue?",
+    "table": {
+      "courseCode": "Course Code",
+      "courseTitle": "Course Title",
+      "date": "Date",
+      "time": "Time",
+      "venue": "Venue"
+    },
+    "universityExamFileDesc": "Upload the university central exam schedule file with the exam codes/numbers and timeslots.",
+    "courseDataFileDesc": "Upload the course mapping file with course names, student counts, and lecture times.",
+    "processing": "Processing...",
+    "processError": "Error processing files",
+    "exportReport": "Export Report",
+    "saveToDatabase": "Save to Database",
+    "savedToDatabase": "Exam schedules saved to database",
+    "saveError": "Error saving to database",
+    "reportError": "Error generating report",
+    "filesMissing": "Please upload both files",
+    "processedExams": "Processed Exam Schedule",
+    "examNum": "Exam #",
+    "studentCount": "Students",
+    "conflicts": "Scheduling Conflicts",
+    "conflictsDetected": "Scheduling Conflicts Detected",
+    "conflictsDescription": "Some courses are assigned to the same venue at the same time. Please review and resolve conflicts.",
+    "conflictingCourses": "Conflicting Courses",
+    "unmatchedCourses": "Unmatched Courses",
+    "firstLectureDay": "First Lecture Day",
+    "firstLectureTime": "First Lecture Time",
+    "noProcessedExams": "No processed exam schedules yet",
+    "uploadFilesFirst": "Upload and process files first",
+    "uploadTab": "Upload Files",
+    "resultsTab": "Processing Results",
+    "venuesTab": "Venue Management",
+    "existingTab": "Current Schedules"
+  },
+  "exams": {
+    "title": "Exam Schedule",
+    "subtitle": "View your upcoming exams and details.",
+    "schedule": "Exam Schedule",
+    "noExams": "No exams found",
+    "table": {
+      "courseCode": "Course Code",
+      "courseTitle": "Course Title",
+      "date": "Date",
+      "time": "Time",
+      "venue": "Venue"
+    }
+  },
+  "students": {
+    "title": "Students",
+    "subtitle": "Manage student records and enrollments."
+  },
+  "predictions": {
+    "title": "Predictions",
+    "subtitle": "Course and section demand forecasting tools."
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your account and application preferences."
+  },
+  "venue": {
+    "addSuccess": "Venue added successfully",
+    "addError": "Failed to add venue",
+    "updateSuccess": "Venue updated successfully",
+    "updateError": "Failed to update venue",
+    "deleteSuccess": "Venue deleted successfully",
+    "deleteError": "Failed to delete venue"
+  },
+  "exam": {
+    "addSuccess": "Exam scheduled successfully",
+    "addError": "Failed to schedule exam"
+  },
+  "home": {
+    "title": "MASARI Academic Operations Platform",
+    "subtitle": "Streamline academic operations with intelligent scheduling and planning tools",
+    "features": {
+      "title": "Key Features",
+      "courseRegistration": {
+        "title": "Course Registration",
+        "description": "Simplify the registration process for students and administrators."
+      },
+      "sectionPrediction": {
+        "title": "Section Prediction",
+        "description": "Use AI to predict course demand and optimize section offerings."
+      },
+      "examScheduling": {
+        "title": "Exam Scheduling",
+        "description": "Intelligent exam scheduling to avoid conflicts and optimize venue usage."
+      },
+      "userRoleManagement": {
+        "title": "Role-Based Access",
+        "description": "Separate interfaces for students, instructors, and administrators."
+      }
+    },
+    "about": {
+      "title": "About MASARI",
+      "description": "MASARI is designed to help academic institutions streamline their operations and enhance the student experience.",
+      "mission": {
+        "title": "Our Mission",
+        "description": "To simplify academic operations through innovative technology solutions."
+      },
+      "vision": {
+        "title": "Our Vision",
+        "description": "To become the leading platform for academic scheduling and resource management."
+      },
+      "values": {
+        "title": "Our Values",
+        "description": "Innovation, efficiency, and student-centered design."
+      }
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "description": "Interested in learning more about MASARI? Contact us for a demo.",
+      "button": "Contact Us"
+    }
+  },
+  "courseRequest": {
+    "title": "Course Request",
+    "subtitle": "Submit requests for courses you want to take",
+    "formTitle": "Request a Course",
+    "course": "Course",
+    "selectCourse": "Select a course",
+    "noCourses": "No courses available",
+    "submit": "Submit Request",
+    "success": "Course request submitted successfully",
+    "error": "Failed to submit course request",
+    "note": "Your request will be reviewed by an administrator. You will be notified once a decision has been made."
+  },
+  "roleSelection": {
+    "title": "Select Your Role",
+    "description": "Please select your role to continue",
+    "admin": "Administrator",
+    "adminDescription": "Manage courses, schedules, and student records",
+    "student": "Student",
+    "studentDescription": "Access your courses, exams, and submit requests",
+    "faculty": "Faculty",
+    "facultyDescription": "Manage your courses and student grades"
+  }
+}

@@ -14,12 +14,11 @@ const RoleSelection: React.FC = () => {
   const navigate = useNavigate();
 
   const handleSelectRole = (role: 'admin' | 'student') => {
-    // In a real application, we would set the role in context or local storage
-    // For now, we'll just navigate to the appropriate dashboard
+    // Navigate to the appropriate login page based on role
     if (role === 'admin') {
-      navigate('/dashboard');
+      navigate('/admin-login');
     } else {
-      navigate('/student');
+      navigate('/student-login');
     }
   };
 

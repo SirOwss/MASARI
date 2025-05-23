@@ -29,18 +29,24 @@ i18n
       },
     },
     fallbackLng: 'en',
+    debug: false,
+    lng: currentLanguage,
     interpolation: {
       escapeValue: false,
     },
     detection: {
       order: ['localStorage', 'navigator'],
       caches: ['localStorage']
+    },
+    react: {
+      useSuspense: false
     }
   });
 
 // Listen for language changes
 i18n.on('languageChanged', (lng) => {
   setDirection(lng);
+  localStorage.setItem('i18nextLng', lng);
 });
 
 export default i18n;

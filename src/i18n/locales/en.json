@@ -1,195 +1,60 @@
 
 {
   "common": {
-    "login": "Login",
-    "logout": "Logout",
-    "profile": "Profile",
-    "settings": "Settings",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "loading": "Loading...",
+    "save": "Save",
+    "submitting": "Submitting...",
+    "search": "Search...",
+    "filters": "Filters",
+    "noData": "No data available",
+    "backToHome": "Back to Home",
     "myAccount": "My Account",
+    "profile": "Profile",
+    "logout": "Logout",
+    "processing": "Processing...",
+    "login": "Login",
     "about": "About",
     "features": "Features",
     "contact": "Contact",
     "getStarted": "Get Started",
     "learnMore": "Learn More",
-    "loading": "Loading...",
-    "submitting": "Submitting...",
-    "backToHome": "Back to Home",
     "edit": "Edit",
     "delete": "Delete",
     "actions": "Actions"
   },
-  "dashboard": {
-    "title": "Dashboard",
-    "subtitle": "Welcome to MASARI Academic Operations Platform.",
-    "studentTitle": "Student Dashboard",
-    "studentSubtitle": "View your academic progress and upcoming exams.",
-    "upcomingExams": "Upcoming Exams",
-    "enrolledCourses": "Enrolled Courses",
-    "notifications": "Notifications",
-    "totalCredits": "Total Credits",
-    "nextExam": "Next exam in",
-    "days": "days",
-    "newNotifications": "New notifications",
-    "welcome": "Welcome to MASARI",
-    "studentWelcome": "Welcome to the MASARI Student Portal. Here you can view your upcoming exams, enrolled courses, and submit course requests."
-  },
-  "courses": {
-    "title": "Courses",
-    "subtitle": "Manage academic courses and their details.",
-    "addCourse": "Add Course",
-    "noCourses": "No courses found",
-    "table": {
-      "code": "Course Code",
-      "title": "Title",
-      "credits": "Credits",
-      "actions": "Actions"
-    }
-  },
-  "studentCourses": {
-    "title": "My Courses",
-    "subtitle": "View and register for courses",
-    "enrolledCourses": "Enrolled Courses"
-  },
-  "schedule": {
-    "title": "Course Schedule",
-    "subtitle": "Manage course timetables and venues.",
-    "uploadTitle": "Upload Schedule Data",
-    "universityExamFile": "University Exam Schedule",
-    "courseDataFile": "Course Data File",
-    "processFiles": "Process Files",
-    "generateReport": "Generate Report",
-    "examSchedules": "Exam Schedules",
-    "addExam": "Add Exam",
-    "addExamTitle": "Add New Exam",
-    "saveExam": "Save Exam",
-    "loadingExams": "Loading exam schedules...",
-    "noExams": "No exam schedules found",
-    "course": "Course",
-    "selectCourse": "Select a course",
-    "venue": "Venue",
-    "selectVenue": "Select a venue",
-    "examDate": "Exam Date",
-    "startTime": "Start Time",
-    "endTime": "End Time",
-    "venueManagement": "Venue Management",
-    "addVenue": "Add Venue",
-    "editVenue": "Edit Venue",
-    "venueName": "Venue Name",
-    "capacity": "Capacity",
-    "students": "students",
-    "saveVenue": "Save Venue",
-    "updateVenue": "Update Venue",
-    "loadingVenues": "Loading venues...",
-    "noVenues": "No venues found",
-    "currentSemesterSchedule": "Current Semester Schedule",
-    "loadingSchedules": "Loading schedules...",
-    "noSchedules": "No schedules found",
-    "processingFiles": "Processing files...",
-    "processSuccess": "Files processed successfully",
-    "reportGenerated": "Report generated successfully",
-    "confirmDelete": "Are you sure you want to delete this venue?",
-    "table": {
-      "courseCode": "Course Code",
-      "courseTitle": "Course Title",
-      "date": "Date",
-      "time": "Time",
-      "venue": "Venue"
-    },
-    "universityExamFileDesc": "Upload the university central exam schedule file with the exam codes/numbers and timeslots.",
-    "courseDataFileDesc": "Upload the course mapping file with course names, student counts, and lecture times.",
-    "processing": "Processing...",
-    "processError": "Error processing files",
-    "exportReport": "Export Report",
-    "saveToDatabase": "Save to Database",
-    "savedToDatabase": "Exam schedules saved to database",
-    "saveError": "Error saving to database",
-    "reportError": "Error generating report",
-    "filesMissing": "Please upload both files",
-    "processedExams": "Processed Exam Schedule",
-    "examNum": "Exam #",
-    "studentCount": "Students",
-    "conflicts": "Scheduling Conflicts",
-    "conflictsDetected": "Scheduling Conflicts Detected",
-    "conflictsDescription": "Some courses are assigned to the same venue at the same time. Please review and resolve conflicts.",
-    "conflictingCourses": "Conflicting Courses",
-    "unmatchedCourses": "Unmatched Courses",
-    "firstLectureDay": "First Lecture Day",
-    "firstLectureTime": "First Lecture Time",
-    "noProcessedExams": "No processed exam schedules yet",
-    "uploadFilesFirst": "Upload and process files first",
-    "uploadTab": "Upload Files",
-    "resultsTab": "Processing Results",
-    "venuesTab": "Venue Management",
-    "existingTab": "Current Schedules"
-  },
-  "exams": {
-    "title": "Exam Schedule",
-    "subtitle": "View your upcoming exams and details.",
-    "schedule": "Exam Schedule",
-    "noExams": "No exams found",
-    "table": {
-      "courseCode": "Course Code",
-      "courseTitle": "Course Title",
-      "date": "Date",
-      "time": "Time",
-      "venue": "Venue"
-    }
-  },
-  "students": {
-    "title": "Students",
-    "subtitle": "Manage student records and enrollments."
-  },
-  "predictions": {
-    "title": "Predictions",
-    "subtitle": "Course and section demand forecasting tools."
-  },
-  "settings": {
-    "title": "Settings",
-    "subtitle": "Manage your account and application preferences."
-  },
-  "venue": {
-    "addSuccess": "Venue added successfully",
-    "addError": "Failed to add venue",
-    "updateSuccess": "Venue updated successfully",
-    "updateError": "Failed to update venue",
-    "deleteSuccess": "Venue deleted successfully",
-    "deleteError": "Failed to delete venue"
-  },
-  "exam": {
-    "addSuccess": "Exam scheduled successfully",
-    "addError": "Failed to schedule exam"
-  },
   "home": {
     "title": "MASARI Academic Operations Platform",
-    "subtitle": "Streamline academic operations with intelligent scheduling and planning tools",
+    "subtitle": "Streamline academic operations with intelligent tools for scheduling and planning",
     "features": {
       "title": "Key Features",
       "courseRegistration": {
         "title": "Course Registration",
-        "description": "Simplify the registration process for students and administrators."
+        "description": "Simplified course registration process for students and administrators."
       },
       "sectionPrediction": {
         "title": "Section Prediction",
-        "description": "Use AI to predict course demand and optimize section offerings."
+        "description": "AI-powered predictions to forecast course demand and optimize section offerings."
       },
       "examScheduling": {
         "title": "Exam Scheduling",
         "description": "Intelligent exam scheduling to avoid conflicts and optimize venue usage."
       },
       "userRoleManagement": {
-        "title": "Role-Based Access",
-        "description": "Separate interfaces for students, instructors, and administrators."
+        "title": "User Role Management",
+        "description": "Separate interfaces for students, faculty, and administrators."
       }
     },
     "about": {
       "title": "About MASARI",
-      "description": "MASARI is designed to help academic institutions streamline their operations and enhance the student experience.",
+      "description": "MASARI is designed to help academic institutions streamline their operations and improve student experience.",
       "mission": {
         "title": "Our Mission",
         "description": "To simplify academic operations through innovative technology solutions."
       },
       "vision": {
-        "title": "Our Vision",
+        "title": "Our Vision", 
         "description": "To become the leading platform for academic scheduling and resource management."
       },
       "values": {
@@ -203,26 +68,221 @@
       "button": "Contact Us"
     }
   },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back",
+    "summary": "Summary",
+    "totalStudents": "Total Students",
+    "totalCourses": "Total Courses",
+    "upcomingExams": "Upcoming Exams",
+    "recentActivity": "Recent Activity",
+    "quickActions": "Quick Actions"
+  },
   "courseRequest": {
     "title": "Course Request",
-    "subtitle": "Submit requests for courses you want to take",
-    "formTitle": "Request a Course",
+    "registration": "Registration",
+    "subtitle": "Request to add courses to your schedule",
+    "formTitle": "Request Form",
     "course": "Course",
     "selectCourse": "Select a course",
-    "noCourses": "No courses available",
+    "sectionCode": "Section Code",
+    "sectionCodePlaceholder": "e.g., A1, B2",
+    "reason": "Reason for Adding",
+    "reasonPlaceholder": "Why do you need to add this course?",
     "submit": "Submit Request",
+    "noCourses": "No courses available",
     "success": "Course request submitted successfully",
     "error": "Failed to submit course request",
-    "note": "Your request will be reviewed by an administrator. You will be notified once a decision has been made."
+    "note": "Your request will be reviewed by academic staff. You will be notified when a decision is made.",
+    "yourRequests": "Your Course Requests",
+    "requestsDescription": "Track the status of your course registration requests",
+    "noRequests": "You haven't submitted any course requests yet",
+    "rejected": "Reason for rejection",
+    "status": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    },
+    "table": {
+      "course": "Course",
+      "sectionCode": "Section",
+      "requestDate": "Request Date",
+      "status": "Status",
+      "comments": "Comments"
+    },
+    "tabs": {
+      "submit": "Submit Request",
+      "status": "Request Status"
+    },
+    "admin": {
+      "title": "Course Requests",
+      "subtitle": "Manage student course registration requests",
+      "overview": "Requests Overview",
+      "overviewDescription": "Review and manage student requests by course",
+      "dashboardTitle": "Course Requests by Course",
+      "pending": "Pending",
+      "export": "Export",
+      "approve": "Approve",
+      "reject": "Reject",
+      "processed": "Processed",
+      "approveRequest": "Approve Course Request",
+      "approveDescription": "The student will be notified that their request has been approved",
+      "rejectRequest": "Reject Course Request",
+      "rejectDescription": "The student will be notified that their request has been rejected",
+      "confirmApprove": "Approve Request",
+      "confirmReject": "Reject Request",
+      "exportSuccess": "Request data exported successfully",
+      "exportError": "Error exporting request data",
+      "updateSuccess": "Request updated successfully",
+      "updateError": "Error updating request",
+      "comment": "Staff Comment (Optional)",
+      "commentPlaceholder": "Add an optional comment for the student",
+      "rejectionReason": "Rejection Reason",
+      "rejectionPlaceholder": "Provide a reason for rejecting this request",
+      "rejectionRequired": "Please provide a reason for rejection",
+      "student": "Student",
+      "studentId": "Student ID",
+      "studentReason": "Student's Reason",
+      "course": "Course",
+      "sectionCode": "Section Code",
+      "noRequests": "No course requests have been submitted yet",
+      "table": {
+        "student": "Student",
+        "id": "Student ID",
+        "section": "Section",
+        "reason": "Reason",
+        "date": "Date",
+        "status": "Status",
+        "actions": "Actions"
+      }
+    }
+  },
+  "courses": {
+    "title": "Courses",
+    "addCourse": "Add Course",
+    "courseCode": "Course Code",
+    "courseTitle": "Course Title",
+    "credits": "Credits",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirmDelete": "Are you sure you want to delete this course?",
+    "courseAdded": "Course added successfully",
+    "courseUpdated": "Course updated successfully",
+    "courseDeleted": "Course deleted successfully",
+    "error": {
+      "add": "Failed to add course",
+      "update": "Failed to update course",
+      "delete": "Failed to delete course"
+    }
+  },
+  "studentCourses": {
+    "title": "My Courses",
+    "currentCourses": "Current Courses",
+    "completedCourses": "Completed Courses",
+    "table": {
+      "code": "Code",
+      "title": "Title",
+      "credits": "Credits",
+      "grade": "Grade",
+      "status": "Status"
+    }
+  },
+  "exams": {
+    "title": "Exam Schedule",
+    "upcoming": "Upcoming Exams",
+    "past": "Past Exams",
+    "date": "Date",
+    "time": "Time",
+    "course": "Course",
+    "venue": "Venue",
+    "noExams": "No exams scheduled"
+  },
+  "schedule": {
+    "title": "Course Schedule",
+    "uploadTab": "Upload Schedule",
+    "resultsTab": "Results",
+    "venuesTab": "Venues",
+    "existingTab": "Existing Schedule",
+    "addExam": "Add Exam",
+    "examSchedules": "Exam Schedules",
+    "loadingExams": "Loading exam schedules...",
+    "noExams": "No exam schedules found",
+    "table": {
+      "courseCode": "Course Code",
+      "courseTitle": "Course Title",
+      "date": "Date",
+      "time": "Time",
+      "venue": "Venue"
+    },
+    "uploadTitle": "Upload Exam Schedule Files",
+    "uploadSubtitle": "Upload course enrollment and venue files to generate an exam schedule",
+    "dragDropFiles": "Drag and drop files here or click to browse",
+    "processingFiles": "Processing files...",
+    "uploadSuccess": "Files uploaded successfully",
+    "uploadError": "Error uploading files",
+    "savingToDatabase": "Saving exam schedule to database...",
+    "savedToDatabase": "Exam schedule saved to database",
+    "saveError": "Error saving to database",
+    "reportGenerated": "Report generated successfully",
+    "reportError": "Error generating report"
+  },
+  "venue": {
+    "addVenue": "Add Venue",
+    "editVenue": "Edit Venue",
+    "venueName": "Venue Name",
+    "capacity": "Capacity",
+    "addSuccess": "Venue added successfully",
+    "updateSuccess": "Venue updated successfully",
+    "deleteSuccess": "Venue deleted successfully",
+    "addError": "Failed to add venue",
+    "updateError": "Failed to update venue",
+    "deleteError": "Failed to delete venue",
+    "confirmDelete": "Are you sure you want to delete this venue?"
+  },
+  "students": {
+    "title": "Students",
+    "addStudent": "Add Student",
+    "name": "Name",
+    "id": "ID",
+    "level": "Level",
+    "gpa": "GPA",
+    "major": "Major",
+    "actions": "Actions"
+  },
+  "predictions": {
+    "title": "Enrollment Predictions",
+    "academicYear": "Academic Year",
+    "semester": "Semester",
+    "courseCode": "Course Code",
+    "courseTitle": "Course Title",
+    "predictedEnrollment": "Predicted Enrollment",
+    "sections": "Sections",
+    "avgPerSection": "Avg per Section",
+    "sectionsNeeded": "Sections Needed",
+    "updatePrediction": "Update Prediction"
+  },
+  "settings": {
+    "title": "Settings",
+    "appearance": "Appearance",
+    "theme": "Theme",
+    "language": "Language",
+    "notifications": "Notifications",
+    "emailNotifications": "Email Notifications",
+    "account": "Account",
+    "changePassword": "Change Password",
+    "profileSettings": "Profile Settings"
   },
   "roleSelection": {
     "title": "Select Your Role",
-    "description": "Please select your role to continue",
+    "description": "Choose your role to access the appropriate dashboard",
     "admin": "Administrator",
-    "adminDescription": "Manage courses, schedules, and student records",
+    "adminDescription": "Manage courses, exam schedules, and academic operations",
     "student": "Student",
-    "studentDescription": "Access your courses, exams, and submit requests",
-    "faculty": "Faculty",
-    "facultyDescription": "Manage your courses and student grades"
+    "studentDescription": "View your courses, exam schedule, and submit requests"
+  },
+  "languages": {
+    "en": "English",
+    "ar": "العربية"
   }
 }

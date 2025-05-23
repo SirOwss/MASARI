@@ -8,7 +8,8 @@ import {
   Settings,
   BookMarked,
   Home,
-  GraduationCap
+  GraduationCap,
+  FileText
 } from "lucide-react";
 
 interface StudentSidebarNavProps {
@@ -43,6 +44,12 @@ export function StudentSidebarNav({ collapsed }: StudentSidebarNavProps) {
       label: 'Course Request',
       translationKey: 'courseRequest.title',
       icon: BookMarked,
+    },
+    {
+      href: '/student/course-registration',
+      label: 'Course Registration',
+      translationKey: 'courseRequest.registration',
+      icon: FileText,
     },
     {
       href: '/student/courses',

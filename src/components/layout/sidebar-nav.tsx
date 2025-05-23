@@ -12,7 +12,8 @@ import {
   BarChart,
   GraduationCap,
   BookMarked,
-  CalendarClock
+  CalendarClock,
+  FileText
 } from "lucide-react";
 
 interface SidebarNavProps {
@@ -52,6 +53,13 @@ export function SidebarNav({ collapsed, userRole }: SidebarNavProps) {
       translationKey: 'studentCourses.title',
       icon: BookMarked,
       roles: ['student'],
+    },
+    {
+      href: '/dashboard/course-requests',
+      label: 'Course Requests',
+      translationKey: 'courseRequest.admin.title',
+      icon: FileText,
+      roles: ['admin', 'faculty'],
     },
     {
       href: '/dashboard/schedule',

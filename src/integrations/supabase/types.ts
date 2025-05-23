@@ -97,8 +97,12 @@ export type Database = {
           course_id: string | null
           created_at: string | null
           id: string
+          metadata: Json | null
+          reason: string | null
           rejection_reason: string | null
           reviewed_by: string | null
+          section_code: string | null
+          staff_comment: string | null
           status: Database["public"]["Enums"]["request_status"] | null
           student_id: string | null
           updated_at: string | null
@@ -107,8 +111,12 @@ export type Database = {
           course_id?: string | null
           created_at?: string | null
           id?: string
+          metadata?: Json | null
+          reason?: string | null
           rejection_reason?: string | null
           reviewed_by?: string | null
+          section_code?: string | null
+          staff_comment?: string | null
           status?: Database["public"]["Enums"]["request_status"] | null
           student_id?: string | null
           updated_at?: string | null
@@ -117,8 +125,12 @@ export type Database = {
           course_id?: string | null
           created_at?: string | null
           id?: string
+          metadata?: Json | null
+          reason?: string | null
           rejection_reason?: string | null
           reviewed_by?: string | null
+          section_code?: string | null
+          staff_comment?: string | null
           status?: Database["public"]["Enums"]["request_status"] | null
           student_id?: string | null
           updated_at?: string | null

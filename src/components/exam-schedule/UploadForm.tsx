@@ -44,7 +44,7 @@ export const UploadForm = ({ processing, setProcessing }: UploadFormProps) => {
       formData.append('universityExamFile', universityExamFile);
       formData.append('courseDataFile', courseDataFile);
 
-      const response = await fetch('http://localhost:5000/generate-docx', {
+      const response = await fetch('https://masari-api.onrender.com:5000/generate-docx', {
         method: 'POST',
         body: formData,
       });

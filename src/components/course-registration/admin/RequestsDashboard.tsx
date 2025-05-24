@@ -50,10 +50,11 @@ export function RequestsDashboard({ requestGroups, isLoading }: RequestsDashboar
   });
 
   const handleOpenReviewDialog = (request: CourseRequestWithDetails, action: 'approved' | 'rejected') => {
-    setSelectedRequest(request);
-    setReviewAction(action);
-    setReviewDialogOpen(true);
-  };
+  console.log("Selected request ID:", request.id);
+  setSelectedRequest(request);
+  setReviewAction(action);
+  setReviewDialogOpen(true);
+};
 
   const handleExportRequests = (requests: CourseRequestWithDetails[], courseName: string) => {
     try {

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BarChart, TrendingUp, Upload, FileText, Edit2 } from "lucide-react";
+import { BarChart, TrendingUp, Upload, FileText, Edit2, FileUp } from "lucide-react";
 import {
   BarChart as RechartsBarChart,
   Bar,
@@ -23,6 +23,8 @@ import { useForm } from "react-hook-form";
 import { toast } from "@/components/ui/use-toast";
 import { EditCourseDialog } from '@/components/predictions/EditCourseDialog';
 import { fetchPredictions } from '@/lib/queries/predictions';
+import { supabase } from "@/integrations/supabase/client";
+
 
 interface UploadFormValues {
   courseFile: FileList;
@@ -31,7 +33,8 @@ interface UploadFormValues {
 
 const Predictions = () => {
   const { t } = useTranslation();
-  const [selectedSemester, setSelectedSemester] = useState('Fall 2024');
+  const [selectedSemester, setSelectedSemester] = useState('Semester');
+  const [selectedYear, setSelectedYear] = useState('Year');
   const [selectedCourse, setSelectedCourse] = useState('All Courses');
   const [showUploadForm, setShowUploadForm] = useState(false);
   const [selectedCourseForEdit, setSelectedCourseForEdit] = useState<any>(null);
@@ -62,9 +65,13 @@ const Predictions = () => {
     });
   };
 
-  const filteredSectionData = predictions && selectedCourse === 'All Courses' 
-    ? predictions 
-    : predictions?.filter(item => item.code === selectedCourse) || [];
+
+
+  const filteredSectionData = predictions
+    ? (selectedCourse === 'All Courses'
+      ? predictions
+      : predictions.filter(item => item.code === selectedCourse))
+    : [];
 
   return (
     <div className="space-y-6">
@@ -75,107 +82,37 @@ const Predictions = () => {
 
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-wrap items-center gap-2">
-          <Select value={selectedSemester} onValueChange={setSelectedSemester}>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder={t('predictions.selectSemester')} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="Fall 2024">Fall 2024</SelectItem>
-              <SelectItem value="Spring 2025">Spring 2025</SelectItem>
-              <SelectItem value="Summer 2025">Summer 2025</SelectItem>
-            </SelectContent>
-          </Select>
-          
-          <Select value={selectedCourse} onValueChange={setSelectedCourse}>
+
+
+          <Select value={selectedYear} onValueChange={setSelectedYear}>
             <SelectTrigger className="w-[200px]">
-              <SelectValue placeholder={t('predictions.selectCourse')} />
+              <SelectValue placeholder={t('predictions.year')} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="All Courses">{t('predictions.allCourses')}</SelectItem>
-              <SelectItem value="CS101">CS101</SelectItem>
-              <SelectItem value="CS102">CS102</SelectItem>
-              <SelectItem value="CS201">CS201</SelectItem>
-              <SelectItem value="CS202">CS202</SelectItem>
-              <SelectItem value="CS301">CS301</SelectItem>
+              <SelectItem value="Year">{t('predictions.year')}</SelectItem>
+              <SelectItem value="2024">2024</SelectItem>
+              <SelectItem value="2025">2025</SelectItem>
+              <SelectItem value="2026">2026</SelectItem>
             </SelectContent>
           </Select>
-        </div>
-        
-        <div className="flex flex-wrap gap-2">
-          <Button onClick={() => setShowUploadForm(true)} variant="outline">
-            <Upload className="mr-2 h-4 w-4" />
-            {t('predictions.uploadData')}
-          </Button>
-          <Button onClick={handleExportReport} variant="outline">
-            <FileText className="mr-2 h-4 w-4" />
-            {t('predictions.exportReport')}
+          <Select value={selectedSemester} onValueChange={setSelectedSemester}>
+            <SelectTrigger className="w-[200px]">
+              <SelectValue placeholder={t('predictions.semester')} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="Semester">{t('predictions.semester')}</SelectItem>
+              <SelectItem value="Frist Semester">Frist Semester</SelectItem>
+              <SelectItem value="Second Semester">Second Semester</SelectItem>
+            </SelectContent>
+          </Select>
+          <Button type="submit" className="mt-2" >
+            <FileUp className="mr-2 h-4 w-4" />
+            Predict
           </Button>
         </div>
       </div>
 
-      {showUploadForm && (
-        <Card>
-          <CardHeader>
-            <CardTitle>{t('predictions.uploadForm.title')}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(handleFileUpload)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="courseFile"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t('predictions.uploadForm.courseFile')}</FormLabel>
-                      <FormControl>
-                        <Input 
-                          type="file" 
-                          accept=".csv,.xlsx" 
-                          onChange={(e) => {
-                            if (e.target.files) {
-                              field.onChange(e.target.files);
-                            }
-                          }} 
-                        />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="semester"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t('predictions.uploadForm.semester')}</FormLabel>
-                      <Select 
-                        defaultValue={field.value} 
-                        onValueChange={field.onChange}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder={t('predictions.selectSemester')} />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="Fall 2024">Fall 2024</SelectItem>
-                          <SelectItem value="Spring 2025">Spring 2025</SelectItem>
-                          <SelectItem value="Summer 2025">Summer 2025</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </FormItem>
-                  )}
-                />
-                <div className="flex gap-2">
-                  <Button type="submit" variant="masari">{t('predictions.uploadForm.submit')}</Button>
-                  <Button type="button" variant="outline" onClick={() => setShowUploadForm(false)}>
-                    {t('predictions.uploadForm.cancel')}
-                  </Button>
-                </div>
-              </form>
-            </Form>
-          </CardContent>
-        </Card>
-      )}
+
 
       <div className="grid gap-4 md:grid-cols-2">
         <Card>
@@ -235,7 +172,9 @@ const Predictions = () => {
           </CardContent>
         </Card>
       </div>
+      <div className="flex flex-wrap items-center justify-between gap-4">
 
+      </div>
       <Card>
         <CardHeader>
           <CardTitle>{t('predictions.detailedRecommendations')}</CardTitle>
@@ -251,62 +190,36 @@ const Predictions = () => {
                   <TableHead>{t('predictions.table.courseTitle')}</TableHead>
                   <TableHead>{t('predictions.table.section')}</TableHead>
                   <TableHead className="text-right">{t('predictions.table.capacity')}</TableHead>
-                  <TableHead className="text-right">{t('predictions.table.enrollment')}</TableHead>
-                  <TableHead className="text-right">{t('predictions.table.fillRate')}</TableHead>
-                  <TableHead></TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {filteredSectionData.map((item) => (
-                  <TableRow key={item.id}>
-                    <TableCell>{item.code}</TableCell>
-                    <TableCell>{item.title}</TableCell>
-                    <TableCell>{item.sections}</TableCell>
-                    <TableCell className="text-right">{item.avg_per_section}</TableCell>
-                    <TableCell className="text-right">{item.predicted}</TableCell>
-                    <TableCell className="text-right">
-                      <span 
-                        className={`font-medium ${
-                          (item.predicted / (item.sections * item.avg_per_section)) > 0.9 
-                            ? 'text-amber-600' 
-                            : 'text-green-600'
-                        }`}
-                      >
-                        {Math.round((item.predicted / (item.sections * item.avg_per_section)) * 100)}%
-                      </span>
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => setSelectedCourseForEdit(item)}
-                      >
-                        <Edit2 className="h-4 w-4" />
-                        <span className="sr-only">{t('common.edit')}</span>
-                      </Button>
+                {isLoading ? (
+                  <TableRow>
+                    <TableCell colSpan={4} className="text-center">
+                      {t('common.loading')}
                     </TableCell>
                   </TableRow>
-                ))}
+                ) : filteredSectionData.length === 0 ? (
+                  <TableRow>
+                    <TableCell colSpan={4} className="text-center">
+                      {t('common.noDataAvailable')}
+                    </TableCell>
+                  </TableRow>
+                ) : (
+                  filteredSectionData.map((item) => (
+                    <TableRow key={item.id}>
+                      <TableCell>{item.code}</TableCell>
+                      <TableCell>{item.title}</TableCell>
+                    </TableRow>
+                  ))
+                )}
               </TableBody>
             </Table>
           )}
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>{t('predictions.predictionConstraints')}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>{t('predictions.constraints.maxSection')}: <strong>30 {t('schedule.students')}</strong></li>
-            <li>{t('predictions.constraints.minSection')}: <strong>15 {t('schedule.students')}</strong></li>
-            <li>{t('predictions.constraints.faculty')}</li>
-            <li>{t('predictions.constraints.rooms')}</li>
-            <li>{t('predictions.constraints.prerequisites')}</li>
-          </ul>
-        </CardContent>
-      </Card>
+
 
       <EditCourseDialog
         isOpen={!!selectedCourseForEdit}

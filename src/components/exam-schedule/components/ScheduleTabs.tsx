@@ -58,9 +58,6 @@ export const ScheduleTabs: React.FC = () => {
     <Tabs value={activeTab} onValueChange={setActiveTab}>
       <TabsList className="mb-6">
         <TabsTrigger value="upload">{t('schedule.uploadTab')}</TabsTrigger>
-        <TabsTrigger value="results">{t('schedule.resultsTab')}</TabsTrigger>
-        <TabsTrigger value="venues">{t('schedule.venuesTab')}</TabsTrigger>
-        <TabsTrigger value="existing">{t('schedule.existingTab')}</TabsTrigger>
       </TabsList>
 
       <TabsContent value="upload">

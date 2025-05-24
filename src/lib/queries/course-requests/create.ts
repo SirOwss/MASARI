@@ -54,6 +54,10 @@ export const createCourseRequest = async (
       console.error("Error creating course request:", error);
       throw error;
     }
+    if (error) {
+  console.error("Error creating course request:", error.message, error.details);
+  throw error;
+}
 
     console.log("Course request created successfully:", result);
     return result as CourseRequest;

@@ -33,18 +33,8 @@ export function StudentSidebarNav({ collapsed }: StudentSidebarNavProps) {
       translationKey: 'dashboard.title',
       icon: Home,
     },
-    {
-      href: '/student/exams',
-      label: 'Exam Schedule',
-      translationKey: 'exams.title',
-      icon: Calendar,
-    },
-    {
-      href: '/student/course-request',
-      label: 'Course Request',
-      translationKey: 'courseRequest.title',
-      icon: BookMarked,
-    },
+    
+    
     {
       href: '/student/course-registration',
       label: 'Course Registration',
@@ -53,16 +43,11 @@ export function StudentSidebarNav({ collapsed }: StudentSidebarNavProps) {
     },
     {
       href: '/student/courses',
-      label: 'My Courses',
+      label: 'Collage Courses',
       translationKey: 'studentCourses.title',
       icon: GraduationCap,
     },
-    {
-      href: '/student/settings',
-      label: 'Settings',
-      translationKey: 'settings.title',
-      icon: Settings,
-    },
+    
   ];
 
   return (

@@ -1,18 +1,18 @@
 
 import { supabase } from "@/integrations/supabase/client";
 
-export async function fetchPredictions() {
+export const fetchPredictions = async () => {
   const { data, error } = await supabase
-    .from('course_predictions')
-    .select(`
-      *,
-      course_sections (*)
-    `)
-    .order('code');
+    .from('courses')
+    .select('id, code, title');
 
-  if (error) throw error;
-  return data;
-}
+  if (error) {
+    console.error('Error fetching courses:', error);
+    throw new Error('Failed to fetch courses');
+  }
+
+  return data || [];
+};
 
 export async function updateCoursePrediction(id: string, updates: {
   predicted: number;

@@ -68,20 +68,8 @@ export function SidebarNav({ collapsed, userRole }: SidebarNavProps) {
       icon: Calendar,
       roles: ['admin', 'faculty', 'student'],
     },
-    {
-      href: '/dashboard/exams',
-      label: 'Exam Schedule',
-      translationKey: 'exams.title',
-      icon: CalendarClock,
-      roles: ['admin', 'faculty', 'student'],
-    },
-    {
-      href: '/dashboard/students',
-      label: 'Students',
-      translationKey: 'students.title',
-      icon: Users,
-      roles: ['admin', 'faculty'],
-    },
+    
+    
     {
       href: '/dashboard/predictions',
       label: 'Predictions',
@@ -89,13 +77,7 @@ export function SidebarNav({ collapsed, userRole }: SidebarNavProps) {
       icon: BarChart,
       roles: ['admin'],
     },
-    {
-      href: '/dashboard/settings',
-      label: 'Settings',
-      translationKey: 'settings.title',
-      icon: Settings,
-      roles: ['admin', 'faculty', 'student'],
-    },
+    
   ];
 
   return (

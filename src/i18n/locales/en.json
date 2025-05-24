@@ -177,7 +177,8 @@
     }
   },
   "studentCourses": {
-    "title": "My Courses",
+    "title": "Collage Courses",
+    "subtitle": "To see all Courses on FCITR",
     "currentCourses": "Current Courses",
     "completedCourses": "Completed Courses",
     "table": {
@@ -260,7 +261,31 @@
     "sections": "Sections",
     "avgPerSection": "Avg per Section",
     "sectionsNeeded": "Sections Needed",
-    "updatePrediction": "Update Prediction"
+    "updatePrediction": "Update Prediction",
+    "departments":"Departments",
+    "year":"Year",
+    "semester":"Semester",
+    "sectionPredictions":"Section Predictions",
+    "detailedRecommendations":"Detailed Recommendations",
+    "table":{
+      "enrollment":"Enrollment",
+      "section":"Number of Sections",
+      "capacity":"Capacity for each Section",
+      "courseCode":"Course Code",
+      "courseTitle":"Course Title",
+      "fillRate":"Fill Rate"
+    },
+    "predictionMetrics":"Prediction Metrics",
+    "metrics":{
+      "accuracy":"Accuracy",
+      "confidence":"Confidence",
+      "optimization":"Optimization"
+    },
+    "highConfidence":"High Confidence",
+    "forSemester":"forSemester",
+    "optimizedEfficiency":"Optimized Efficiency",
+    "basedOnHistorical":"Based On Historical"
+    
   },
   "settings": {
     "title": "Settings",

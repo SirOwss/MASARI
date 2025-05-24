@@ -32,8 +32,6 @@ export function RequestsTable({ requests, onApprove, onReject }: RequestsTablePr
             <TableHead>{t('courseRequest.admin.table.section')}</TableHead>
             <TableHead>{t('courseRequest.admin.table.reason')}</TableHead>
             <TableHead>{t('courseRequest.admin.table.date')}</TableHead>
-            <TableHead>{t('courseRequest.admin.table.status')}</TableHead>
-            <TableHead>{t('courseRequest.admin.table.actions')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -65,47 +63,7 @@ export function RequestsTable({ requests, onApprove, onReject }: RequestsTablePr
                 <TableCell>{request.section_code}</TableCell>
                 <TableCell className="max-w-xs truncate">{request.reason}</TableCell>
                 <TableCell>{new Date(request.created_at).toLocaleDateString()}</TableCell>
-                <TableCell>
-                  {request.status === 'approved' && (
-                    <Badge variant="success">{t('courseRequest.status.approved')}</Badge>
-                  )}
-                  {request.status === 'rejected' && (
-                    <Badge variant="destructive">{t('courseRequest.status.rejected')}</Badge>
-                  )}
-                  {request.status === 'pending' && (
-                    <Badge variant="secondary">{t('courseRequest.status.pending')}</Badge>
-                  )}
-                </TableCell>
-                <TableCell>
-                  {request.status === 'pending' && (
-                    <div className="flex space-x-2">
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="text-green-600 hover:bg-green-50 border-green-200"
-                        onClick={() => onApprove(request)}
-                      >
-                        <CheckCircle className="h-4 w-4 mr-1" />
-                        {t('courseRequest.admin.approve')}
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="text-red-600 hover:bg-red-50 border-red-200"
-                        onClick={() => onReject(request)}
-                      >
-                        <XCircle className="h-4 w-4 mr-1" />
-                        {t('courseRequest.admin.reject')}
-                      </Button>
-                    </div>
-                  )}
-                  {request.status !== 'pending' && (
-                    <span className="text-sm text-muted-foreground">
-                      {request.status === 'approved' ? t('courseRequest.admin.processed') : ''}
-                      {request.status === 'rejected' && request.rejection_reason ? request.rejection_reason : ''}
-                    </span>
-                  )}
-                </TableCell>
+                
               </TableRow>
             );
           })}

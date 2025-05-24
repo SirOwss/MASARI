@@ -16,7 +16,7 @@ const CourseRegistration = () => {
   
   // For demo purposes, using a placeholder studentId
   // In a real application, this would come from authentication
-  const studentId = '00000000-0000-0000-0000-000000000000'; 
+  const studentId = '2136836'; 
 
   const { data: courses = [], isLoading: coursesLoading } = useQuery({
     queryKey: ['courses'],

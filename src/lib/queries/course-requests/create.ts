@@ -13,30 +13,21 @@ export const createCourseRequest = async (
   try {
     console.log(`Creating course request for student ${studentId}:`, data);
 
-    // We'll store student info in metadata if not using a valid UUID
-    let metadata = {};
-    
-    // Always set student_id to null since we're having issues with non-UUID formats
-    // This allows anonymous submissions while preserving student information
-    let validStudentId = null;
-    
-    // If we have student information but it's not a UUID, store it in metadata
-    if (studentId && !isValidUUID(studentId)) {
-      metadata = {
-        display_name: studentName || 'Guest Student',
-        university_id: universityId || studentId,
-        non_uuid_student_id: studentId
-      };
-      console.log("Storing non-UUID student info in metadata:", metadata);
-    } else if (studentId && isValidUUID(studentId)) {
-      // If it's a valid UUID, use it for the student_id
-      validStudentId = studentId;
-    } else {
-      console.log("No student ID provided, submitting as anonymous request");
+    if (!studentId) {
+      throw new Error("Student ID is required");
     }
 
+    let metadata = {};
+
+    metadata = {
+      display_name: studentName || 'Guest Student',
+      university_id: universityId || studentId,
+      non_uuid_student_id: studentId
+    };
+    console.log("Storing student info in metadata:", metadata);
+
     const courseRequestData = {
-      student_id: validStudentId,
+      student_id: studentId, 
       course_id: data.course_id,
       section_code: data.section_code,
       reason: data.reason,

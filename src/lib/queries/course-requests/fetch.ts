@@ -12,14 +12,14 @@ export const fetchAllCourseRequests = async (): Promise<CourseRequestsGrouped[]>
       .select(`
         *,
         course:course_id(id, code, title),
-        student:student_id(id, name, student_id)
+        student:student_id(name, student_id)
       `)
       .order('created_at', { ascending: false });
     
-    if (error) {
-      console.error("Error fetching course requests:", error);
-      throw error;
-    }
+   if (error) {
+  console.error("Error fetching course requests:", error.message, error.details);
+  throw error;
+}
     
     console.log("Fetched course requests:", data);
     
@@ -54,29 +54,20 @@ export const fetchStudentCourseRequests = async (studentId: string): Promise<Cou
   try {
     console.log(`Fetching course requests for student ${studentId}`);
 
-    let query = supabase
+    const { data, error } = await supabase
       .from('course_requests')
       .select(`
         *,
         course:course_id(id, code, title)
       `)
+      .eq('student_id', studentId) // ابحث مباشرة في student_id بما أنه varchar
       .order('created_at', { ascending: false });
-      
-    // If it looks like a UUID format, query by student_id
-    if (isValidUUID(studentId)) {
-      query = query.eq('student_id', studentId);
-    } else {
-      // Otherwise, look for requests where the non_uuid_student_id matches in metadata
-      query = query.or(`metadata->non_uuid_student_id.eq.${studentId},metadata->university_id.eq.${studentId}`);
-    }
-    
-    const { data, error } = await query;
-    
+
     if (error) {
-      console.error("Error fetching student course requests:", error);
+      console.error("Error fetching student course requests:", error.message, error.details);
       throw error;
     }
-    
+
     console.log("Fetched student course requests:", data);
     return data as CourseRequestWithDetails[];
   } catch (error) {

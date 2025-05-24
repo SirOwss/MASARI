@@ -67,7 +67,6 @@ export function RequestsList({ requests, isLoading }: RequestsListProps) {
                   <TableHead>{t('courseRequest.table.sectionCode')}</TableHead>
                   <TableHead>{t('courseRequest.table.requestDate')}</TableHead>
                   <TableHead>{t('courseRequest.table.status')}</TableHead>
-                  <TableHead>{t('courseRequest.table.comments')}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -79,19 +78,7 @@ export function RequestsList({ requests, isLoading }: RequestsListProps) {
                     <TableCell>{request.section_code}</TableCell>
                     <TableCell>{new Date(request.created_at).toLocaleDateString()}</TableCell>
                     <TableCell>{renderStatusBadge(request.status)}</TableCell>
-                    <TableCell>
-                      {request.status === 'rejected' && request.rejection_reason && (
-                        <div>
-                          <p className="text-destructive font-medium">{t('courseRequest.rejected')}:</p>
-                          <p className="text-sm text-muted-foreground">{request.rejection_reason}</p>
-                        </div>
-                      )}
-                      {request.staff_comment && (
-                        <div className="mt-1">
-                          <p className="text-sm text-muted-foreground">{request.staff_comment}</p>
-                        </div>
-                      )}
-                    </TableCell>
+                    
                   </TableRow>
                 ))}
               </TableBody>

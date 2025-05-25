@@ -24,12 +24,15 @@ import { toast } from "@/components/ui/use-toast";
 import { EditCourseDialog } from '@/components/predictions/EditCourseDialog';
 import { fetchPredictions } from '@/lib/queries/predictions';
 import { supabase } from "@/integrations/supabase/client";
+import { fetchCourses } from '@/lib/queries/courses';
 
 
 interface UploadFormValues {
   courseFile: FileList;
   semester: string;
 }
+
+
 
 const Predictions = () => {
   const { t } = useTranslation();
@@ -38,6 +41,43 @@ const Predictions = () => {
   const [selectedCourse, setSelectedCourse] = useState('All Courses');
   const [showUploadForm, setShowUploadForm] = useState(false);
   const [selectedCourseForEdit, setSelectedCourseForEdit] = useState<any>(null);
+
+  const {
+    data: predictionData,
+    isLoading: predictionsLoading,
+    refetch: fetchPredictions
+  } = useQuery({
+    queryKey: ['predictions', selectedYear, selectedSemester],
+    queryFn: async () => {
+      if (!selectedYear || !selectedSemester) return [];
+
+      const courses = await fetchCourses(); // نجيب الكورسات
+
+      const allPredictions = await Promise.all(
+        courses.map(async (course) => {
+          const res = await fetch("http://localhost:5000/predict", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              courseCode: course.code,
+              semester: selectedSemester + selectedYear
+            })
+          });
+
+          const result = await res.json();
+          return {
+            course: course.code,
+            prediction: result.prediction
+          };
+        })
+      );
+
+      return allPredictions;
+    },
+    enabled: false // نوقف التشغيل التلقائي
+  });
+
+
 
   const { data: predictions, isLoading } = useQuery({
     queryKey: ['predictions'],
@@ -67,11 +107,11 @@ const Predictions = () => {
 
 
 
-  const filteredSectionData = predictions
-    ? (selectedCourse === 'All Courses'
-      ? predictions
-      : predictions.filter(item => item.code === selectedCourse))
-    : [];
+  const filteredSectionData = predictions && Array.isArray(predictions)
+  ? (selectedCourse === 'All Courses'
+    ? predictions
+    : predictions.filter(item => item.code === selectedCourse))
+  : [];
 
   return (
     <div className="space-y-6">
@@ -84,28 +124,31 @@ const Predictions = () => {
         <div className="flex flex-wrap items-center gap-2">
 
 
-          <Select value={selectedYear} onValueChange={setSelectedYear}>
+          <Select value={selectedYear} onValueChange={(value) => { setSelectedYear(value); fetchCourses(); }}>
             <SelectTrigger className="w-[200px]">
               <SelectValue placeholder={t('predictions.year')} />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="Year">{t('predictions.year')}</SelectItem>
-              <SelectItem value="2024">2024</SelectItem>
               <SelectItem value="2025">2025</SelectItem>
               <SelectItem value="2026">2026</SelectItem>
+              <SelectItem value="2027">2027</SelectItem>
             </SelectContent>
           </Select>
-          <Select value={selectedSemester} onValueChange={setSelectedSemester}>
+
+          <Select value={selectedSemester} onValueChange={(value) => { setSelectedSemester(value); fetchCourses(); }}>
             <SelectTrigger className="w-[200px]">
               <SelectValue placeholder={t('predictions.semester')} />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="Semester">{t('predictions.semester')}</SelectItem>
-              <SelectItem value="Frist Semester">Frist Semester</SelectItem>
-              <SelectItem value="Second Semester">Second Semester</SelectItem>
+              <SelectItem value="Semester One">Semester One</SelectItem>
+              <SelectItem value="Semester Two">Semester Two</SelectItem>
             </SelectContent>
           </Select>
-          <Button type="submit" className="mt-2" >
+          <Button type="submit" className="mt-2" disabled={!selectedYear || !selectedSemester || predictionsLoading}
+            onClick={fetchPredictions}>
+            {predictionsLoading ? "جاري التنبؤ..." : "تنبؤ"}
             <FileUp className="mr-2 h-4 w-4" />
             Predict
           </Button>
@@ -210,6 +253,13 @@ const Predictions = () => {
                     <TableRow key={item.id}>
                       <TableCell>{item.code}</TableCell>
                       <TableCell>{item.title}</TableCell>
+                      <TableCell>{predictionData?.map((item) => (
+                        <div key={item.course} className="p-4 border rounded mb-2">
+                          <h3 className="font-bold">{item.course}</h3>
+                          <p>Prediction: {item.prediction}</p>
+                        </div>
+                      ))}
+                      </TableCell>
                     </TableRow>
                   ))
                 )}
